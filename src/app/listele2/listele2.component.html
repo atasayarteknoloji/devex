@@ -1,0 +1,31 @@
+<dx-data-grid [dataSource]="veriKaynagi" [remoteOperations]="true">
+  <dxo-editing
+    mode="form"
+    [allowAdding]="true"
+    [allowUpdating]="true"
+    >
+    <dxo-form [customizeItem]="customizeItem"></dxo-form>
+  </dxo-editing>
+  <!--  excel-->
+  <dxo-export [enabled]="true"></dxo-export>
+  <!--  satır filtresi-->
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+  <!--  tepede seçmeli filtre-->
+  <dxo-header-filter [visible]="true"></dxo-header-filter>
+  <!--  sayfalama-->
+  <dxo-pager [allowedPageSizes]="[5,10,20,50]" [showPageSizeSelector]="true"></dxo-pager>
+  <!--  varsayılan sayfa boyutu-->
+  <dxo-paging [pageSize]="5"></dxo-paging>
+<!--  kolon tanımları başladı-->
+  <dxi-column dataType="number" caption="#" dataField="id"></dxi-column>
+  <dxi-column dataType="string" caption="Başlık" dataField="header"></dxi-column>
+  <dxi-column dataType="string" caption="Konu" dataField="subject"></dxi-column>
+  <dxi-column dataType="datetime" caption="Baş. Zamanı" dataField="startTime"></dxi-column>
+  <dxi-column dataType="date" caption="Bitiş Zamanı" dataField="endTime"></dxi-column>
+  <dxi-column dataType="string" caption="Ekran" dataField="kioksId">
+    <dxo-lookup [dataSource]="kiokses" valueExpr="id" displayExpr="name"></dxo-lookup>
+  </dxi-column>
+</dx-data-grid>
+
+
+
